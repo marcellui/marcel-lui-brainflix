@@ -1,0 +1,53 @@
+@use "../../styles/partials/mixins" as *;
+.border{
+    margin-left: 1rem;
+    margin-right: 1rem;
+  
+}
+
+.title{
+    @include tablet{
+        margin-bottom: 0;
+    }
+    
+}
+
+.description{
+    display: flex;
+    border-top: 1px solid #E1E1E1;
+    border-bottom: 1px solid #E1E1E1;
+    @include tablet{
+        border-top: none;
+    }
+
+    &__date{
+        @include tablet{
+            margin-left: 3rem;
+        }
+    }
+    &__container{
+        @include tablet{
+            display: flex;
+        }
+    }
+    &__card-container{
+        @include tablet{
+            display: flex;
+            position: absolute;
+            right: 5rem;
+        }
+        @include desktop{
+            right: 40rem;
+        }
+    }
+    &__card{
+        display: flex;
+        margin-left: 8rem;
+        @include tablet{
+            margin-left: 2rem;
+        }
+    }
+    &__img-spacing{
+        padding-left: 0.5rem;
+    }
+}

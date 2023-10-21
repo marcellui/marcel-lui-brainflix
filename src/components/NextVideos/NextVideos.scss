@@ -1,0 +1,46 @@
+@use "../../styles/partials/mixins" as *;
+
+.video{
+    &__img{
+        object-fit: cover;
+        // object-position: center;
+        width: 35%;
+        height: 5rem;
+        border-radius: 4px;
+        @include desktop{
+            width: 35%;
+            
+        }
+    }
+    &__card{
+        display: flex;
+        padding-left: 1rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        @include tablet{
+            width: 90%;
+        }
+        @include desktop{
+            width: 60%;
+        }
+    }
+    &__description{
+        padding-left: 1rem;
+        display: flex;
+        flex-direction: column;
+        width: 55%;
+    }
+
+    &__title{
+        padding-left: 1rem;
+    }
+    &__title2{
+        margin: 0;
+    }
+    &__container{
+        display: flex;
+        flex-direction: column;
+        width: 30rem;
+    }
+ 
+}
