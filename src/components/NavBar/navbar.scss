@@ -37,6 +37,9 @@
         @include tablet{
             padding-bottom: 0;
         }
+        @include desktop{
+            padding-left: 26rem;
+        }
     }
 
     &__search-img{
@@ -79,10 +82,11 @@
     &__upload-button{
         display: flex;
         background-color: #0095FF;
-        width: 90%;
+        width: 80%;
         border-radius: 5px;
         justify-content: center;
         margin-bottom: 1rem;
+        text-decoration: none;
         @include tablet{
             width: 20%;
             margin-bottom: 0;

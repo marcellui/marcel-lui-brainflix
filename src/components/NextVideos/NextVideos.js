@@ -1,33 +1,29 @@
 import "./NextVideos.scss";
-import data from "../../data/videos.json";
-import { useState } from "react";
+// import data from "../../data/videos.json";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
-function NextVideos({currentId,handleVideoClick}) {
-  const [videoList, setVideoList] = useState(data.filter(video => video.id !== currentId));
 
+function NextVideos({currentId,videoList}) {
+  
 
-function updateVideoList(){
-  setVideoList(data.filter(video => video.id !== currentId))
-}
+const filterVideoList = videoList.filter(video => video.id !== currentId);
+
 
   return (
     <>
       <h2 className="video__title">NEXT VIDEOS </h2>
       <div className="video__container">
-        {videoList
-        
-        .map((video) => {
+        {filterVideoList?.map((video) => {
           return (
-            <div className="video__card" onClick={() => {
-              handleVideoClick(video.id)
-              updateVideoList();
-              }}>
+            <Link to = {`/video/${video.id}`} className="video__card" key = {video.id} >
                 <img src={video.image} className="video__img"></img>
               <div className="video__description">
                 <h3 className="video__title2">{video.title}</h3>
                 <p>{video.channel}</p>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>

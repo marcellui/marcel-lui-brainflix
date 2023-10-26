@@ -1,0 +1,17 @@
+
+
+.video{
+    &__hero{
+        padding-left: 1rem;
+        padding-right: 1rem;
+        border-top: 1px black solid;
+        border-bottom: 1px black solid;
+    }
+
+    &__image{
+        border-radius: 15px;
+        width: 80vw;
+        height: auto;
+       
+    }
+}

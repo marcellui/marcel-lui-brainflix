@@ -4,6 +4,8 @@ import comment_img from "../../assets/Icons/add_comment.svg";
 import data from "../../data/video-details.json";
 
 function Comments({currentVideo}) {
+
+  console.log(currentVideo)
   return (
     <>
       <div className="comments">
@@ -20,7 +22,7 @@ function Comments({currentVideo}) {
                   placeholder="Add a new comment"
                   className="comments__text-area"
                 ></textarea>
-                <div class="comments__button">
+                <div className="comments__button">
                   <img src={comment_img} className="comments__add-icon"></img>
                   <p className="comments__add-text">COMMENT</p>
                 </div>
@@ -29,39 +31,21 @@ function Comments({currentVideo}) {
           </div>
         </div>
         
-
-        <div>
-          <div className="comments__container2">
-            <img className="comments__img2"></img>
-            <div>
+        
+        {currentVideo?.comments.map((comment, index) => {
+          return (
+            <div className="comments__container2" key={comment.id}>
+              <img className="comments__img2"></img>
+              <div>
                 <div className="comments__name-date">
-                <h4>{currentVideo.comments[0].name}</h4>
-                <p className="comments__date">{new Date(currentVideo.comments[0].timestamp).toLocaleDateString()}</p>
-            </div>
-            <p>{currentVideo.comments[0].comment}</p>
+                <h4>{comment.name}</h4>
+                <p className="comments__date">{new Date(comment.timestamp).toLocaleDateString()}</p>
+              </div>
+            <p>{comment.comment}</p>
             </div>
           </div>
-          <div className="comments__container2">
-            <img className="comments__img2"></img>
-            <div>
-                <div className="comments__name-date">
-                <h4>{currentVideo.comments[1].name}</h4>
-                <p className="comments__date">{new Date(currentVideo.comments[1].timestamp).toLocaleDateString()}</p>
-            </div>
-            <p>{currentVideo.comments[1].comment}</p>
-            </div>
-          </div>
-          <div className="comments__container2">
-            <img className="comments__img2"></img>
-            <div> 
-                <div className="comments__name-date">
-                <h4>{currentVideo.comments[2].name}</h4>
-                <p className="comments__date">{new Date(currentVideo.comments[2].timestamp).toLocaleDateString()}</p>
-            </div>
-            <p>{currentVideo.comments[2].comment}</p>
-            </div>
-          </div>
-        </div>
+          )
+        })}
       </div>
     </>
   );
