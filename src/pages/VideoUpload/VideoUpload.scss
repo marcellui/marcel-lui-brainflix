@@ -1,17 +1,105 @@
-
+@use "../../styles/partials/mixins" as *;
 
 .video{
+
+    &__flex-container{
+        @include desktop{
+            display: flex;
+        }
+    }
+
+    &__img-container{
+        @include desktop{
+            width: 300px;
+        }
+    }
     &__hero{
         padding-left: 1rem;
         padding-right: 1rem;
-        border-top: 1px black solid;
-        border-bottom: 1px black solid;
+        border-top: 1px #E1E1E1 solid;
+        border-bottom: 1px #E1E1E1 solid;
+
+        @include desktop{
+            margin-left: 8rem;
+        }
+        
     }
 
     &__image{
         border-radius: 15px;
-        width: 80vw;
+        width: 90%;
         height: auto;
+        padding-bottom: 1rem;
+        @include tablet{
+            width: 50%;
+        }
+        @include desktop{
+            width: 90%;
+            padding-bottom: 0rem;
+        }
        
+    }
+    &__title3{
+        color: #AFAFAF;
+        padding-left: 0;
+        @include desktop{
+            margin-top: 0;
+        }
+    }
+    &__text-1{
+        width: 90%;
+        margin-bottom: 1rem;
+        height: 2rem;
+        border-radius: 4px;
+        background-color: #FAFAFA;
+    }
+    &__text-2{
+        width: 90%;
+        height: 5rem;
+        margin-bottom: 1rem;
+        border-radius: 4px;
+        background-color: #FAFAFA;
+    }
+    &__form{
+        width: 100%;
+    }
+    &__button{
+        display: flex;
+        background-color: #0095FF;
+        width: 90%;
+        justify-content: center;
+        border-radius: 4px;
+        @include tablet{
+            width: 20%;
+            margin-right: 5rem;
+            margin-left: 5rem;
+        }
+    }
+    &__container1{
+        padding-top: 1rem;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        @include tablet{
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-start;
+        }
+
+    }
+    &__icon{
+        position: relative;
+        left: -10rem;
+        @include tablet{
+            left: -2rem;
+        }
+
+    }
+    &__button-publish{
+        color: white;
+    }
+    &__button-cancel{
+        color:#0095FF;
+        text-align: center;
     }
 }
