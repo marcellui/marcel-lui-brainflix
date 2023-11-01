@@ -18,7 +18,7 @@ const filterVideoList = videoList.filter(video => video.id !== currentId);
         {filterVideoList?.map((video) => {
           return (
             <Link to = {`/video/${video.id}`} className="video__card" key = {video.id} >
-                <img src={video.image} className="video__img"></img>
+                <img src={`http://localhost:8080/${video.image}`} className="video__img"></img>
               <div className="video__description">
                 <h3 className="video__title2">{video.title}</h3>
                 <p>{video.channel}</p>

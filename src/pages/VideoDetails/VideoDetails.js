@@ -13,8 +13,9 @@ import axios from "axios";
 function VideoDetails() {
 
     
-  const apiEndpoint = "https://project-2-api.herokuapp.com/videos"
-  const apiKey = "941442a9-7192-480c-b59a-686eb02913b8"
+  // const apiEndpoint = "https://project-2-api.herokuapp.com/videos"
+  const apiEndpoint2 = "http://localhost:8080/videos"
+  // const apiKey = "941442a9-7192-480c-b59a-686eb02913b8"
   const {id} = useParams();
 
 
@@ -28,28 +29,42 @@ function VideoDetails() {
             setCurrentId(id);
         }
     
-        // console.log(id);
-        // console.log(currentId);
-        // console.log(videoList.find(video => video.id === id))
-        // setCurrentVideo(videoList.find(video => video.id === id))
   }, [id])
 
 
   
+  // useEffect(() => {
+  //   const fetchData = async() =>{
+  //     const {data} = await axios(`${apiEndpoint}?api_key=${apiKey}`)
+  //     setVideoList(data);
+  //   }
+  //   fetchData();
+  // }, [])
+
   useEffect(() => {
     const fetchData = async() =>{
-      const {data} = await axios(`${apiEndpoint}?api_key=${apiKey}`)
+      const {data} = await axios(apiEndpoint2)
       setVideoList(data);
     }
     fetchData();
   }, [])
 
+  // useEffect(()=>{
+  //   const fetchCurrentVideo = async() => {
+  //       console.log(currentId)
+  //       const {data} = await axios(`${apiEndpoint}/${currentId}?api_key=${apiKey}`)
+  //       setCurrentVideo(data);
+        
+  //   }
+  //   fetchCurrentVideo();
+  // }, [currentId])
+
   useEffect(()=>{
     const fetchCurrentVideo = async() => {
         console.log(currentId)
-        const {data} = await axios(`${apiEndpoint}/${currentId}?api_key=${apiKey}`)
+        const {data} = await axios(`${apiEndpoint2}/${currentId}`)
+        console.log(data)
         setCurrentVideo(data);
-        
     }
     fetchCurrentVideo();
   }, [currentId])

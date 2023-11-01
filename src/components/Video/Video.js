@@ -6,7 +6,7 @@ import { useState } from "react"
 function Video({currentVideo}){
     return <>
     <div className="video">
-        <video className="video__element" controls = {true} poster = {currentVideo?.image}>
+        <video className="video__element" controls = {true} poster = {`http://localhost:8080/${currentVideo?.image}`}>
         </video>
     </div>
     </>

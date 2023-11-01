@@ -97,6 +97,10 @@
     }
     &__button-publish{
         color: white;
+        background-color: inherit;
+        height: 3rem;
+        border: none;
+        width: 8rem;
     }
     &__button-cancel{
         color:#0095FF;
